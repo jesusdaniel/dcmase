@@ -1,38 +1,37 @@
 #'
 #' Function to perform community detection on multilayer network data using DC-MASE
-#'
+#' 
 #' @param Adj_list a list of adjacency matrices with the same size n x n.
 #' @param K number of communities. If NA, this is chosen via the scree plot.
+#' @param scaled whether to use scaled or unscaled ASE.
 #' @param clustering_method method to be used for clustering the vertices in the
-#' embedding matrix. Default is "kmeans".
+#' embedding matrix. Options: "kmeans" or "gmm" for Gaussian mixture model.
 #' @param d_vec vector of individual embedding dimensions for each graph. If NA, this is the same as K.
-#' @param row.normalization parameter that indicates the option to normalize the rows of each individual 
-#' embedding. Default is "2" (currently, this is the only one implemented).
+#' @param row.normalization parameter that indicates the option to normalize the rows of each embedding. Options: "2" for spherical spectral clustering, "score" for SCORE method by Jin (2015)
 #' @param diag.augment logical. When true, the diagonal augmentation method for ASE is performed.
 #' @param elbow_graph number of elbow selected in Zhu & Ghodsi method for the scree plot of each individual graph eigenvalues.
 #' @param elbow_dcmase number of elbow selected in Zhu & Ghodsi method for the scree plot of the singular values of the concatenated spectral embeddings of MASE.
 #' @param par whether to run in parallel (TRUE/FALSE)
 #' @param numpar number of clusters for parallel implementation
 #'
-#' @return A list containing a matrix V of size n x d, with the
-#' estimated invariant subspace, and a list R with the individual score parameters for each graph (size d x d each).
+#' @return A list containing the estimated community memberships and the parameters of the multilayer degree-corrected stochastic block model.
 #'
 #' @references
 #'
 #' @author Jes\'us Arroyo <jarroyo@tamu.edu>
 #' @export
 comdet_dcmase <- function(Adj_list, K, clustering_method = "kmeans",
-                          d_vec = NA,
+                          d_vec = NA, scaled = TRUE,
                           row.normalization = "2", diag.augment = FALSE,
                    elbow_graph = 1, elbow_dcmase = 2,
                    par = FALSE, numpar = 12) {
-  
   # Obtain embedding -----------------------------------------------------------
-  embed.dcmase <- dcmase(Adj_list, d = K, d_vec, row.normalization, diag.augment,
+  embed.dcmase <- dcmase(Adj_list, d = K, d_vec, scaled, row.normalization, diag.augment,
                          elbow_graph, elbow_dcmase, show.scree.results  = FALSE,
                          par, numpar)
   n <- ncol(Adj_list[[1]]) # number of vertices
   m <- length(Adj_list) # number of graphs
+  
   if(is.na(K)) {
     K <- ncol(embed.dcmase) # number of communities
   }
