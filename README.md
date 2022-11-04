@@ -8,7 +8,7 @@ Given a collection of *L* adjacency matrices representing graphs with $n$ aligne
 
 The joint embedding is calculated by performing a separate *adjacency spectral embedding*  (ASE) for each graph, which consists in computing the eigendecomposition of each adjacency matrix, with a possible eigenvalue scaling, followed by a row-normalization step (such as dividing the rows by its L2 norm), and then performs a joint singular value decomposition of the concatenated row-normalized ASEs. A pictorial representation is presented below.
 
-![mase embedding](https://raw.githubusercontent.com/jesusdaniel/dcmase/main/img/DC-MASE2.png?token=GHSAT0AAAAAAB2XZ2CXKWMR5ANWXYCHJYVYY3FPB4Q)
+![dc-mase embedding](https://raw.githubusercontent.com/jesusdaniel/dcmase/main/img/DC-MASE2.png?token=GHSAT0AAAAAAB2XZ2CXKWMR5ANWXYCHJYVYY3FPB4Q)
 
 # R Code
 
@@ -16,9 +16,9 @@ The R code in this repository implements DC-MASE and other methods to perform co
 
 
 # Data
+The networks encode weighted edges representing the monthly number of flights between pairs of US airports. These data were obtained from the [T-100 Segment (US Carriers Only)](https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=GEE) database US Bureau of Transportation Statistics (BTS). A post-processed version of this dataset is included in this repository. The DC-MASE algorithm is illustrated using these data.
 
-
-
+![us-airports-clustering](https://raw.githubusercontent.com/jesusdaniel/dcmase/main/Figures/USmap-K4-dcmase.png?token=GHSAT0AAAAAAB2XZ2CXWKFD46OMG67UCXR4Y3FQXPQ)
 
 
 # References
