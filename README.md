@@ -8,7 +8,7 @@ Given a collection of *L* adjacency matrices representing graphs with $n$ aligne
 
 The joint embedding is calculated by performing a separate *adjacency spectral embedding*  (ASE) for each graph, which consists in computing the eigendecomposition of each adjacency matrix, with a possible eigenvalue scaling, followed by a row-normalization step (such as dividing the rows by its L2 norm), and then performs a joint singular value decomposition of the concatenated row-normalized ASEs. A pictorial representation is presented below.
 
-![dc-mase embedding](https://raw.githubusercontent.com/jesusdaniel/dcmase/main/img/DC-MASE2.png?token=GHSAT0AAAAAAB2XZ2CXKWMR5ANWXYCHJYVYY3FPB4Q)
+![dc-mase embedding](https://github.com/jesusdaniel/dcmase/blob/main/img/DC-MASE2.png?raw=true)
 
 # R Code
 
