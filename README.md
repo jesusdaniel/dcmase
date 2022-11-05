@@ -20,4 +20,8 @@ The networks encode weighted edges representing the monthly number of flights be
 
 ![us-airports-clustering](https://github.com/jesusdaniel/dcmase/blob/main/Figures/USmap-K4-dcmase.png)
 
+![us-airports-clustering](https://github.com/jesusdaniel/dcmase/blob/main/Figures/Bmatrices-K4-dcmase.png)
+
+![us-airports-clustering](https://github.com/jesusdaniel/dcmase/blob/main/Figures/degreecorrections-K4-dcmase.png)
+
 # References
