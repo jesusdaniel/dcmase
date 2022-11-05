@@ -18,6 +18,7 @@ The R code in this repository implements DC-MASE and other methods to perform co
 # Data
 The networks encode weighted edges representing the monthly number of flights between pairs of US airports. These data were obtained from the [T-100 Segment (US Carriers Only)](https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=GEE) database US Bureau of Transportation Statistics (BTS). A post-processed version of this dataset is included in this repository. The DC-MASE algorithm is illustrated using these data.
 
+<img src="https://github.com/jesusdaniel/dcmase/blob/main/Figures/USmap-K4-dcmase.png" width="200" height="400" />
 ![us-airports-clustering](https://github.com/jesusdaniel/dcmase/blob/main/Figures/USmap-K4-dcmase.png)
 
 ![us-airports-clustering](https://github.com/jesusdaniel/dcmase/blob/main/Figures/Bmatrices-K4-dcmase.png)
