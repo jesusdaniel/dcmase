@@ -4,7 +4,7 @@ The degree-corrected multiple adjacency spectral embedding (DC-MASE) obtains a j
 
 ## Overview
 
-Given a collection of *L* adjacency matrices representing graphs with $n$ aligned vertices (e.g. multilayer networks), DC-MASE obtains a joint embedding matrix of size n by K, where each row corresponds to a vertex in the networks. After this, communities are obtained by applying a clustering procedure (such as K-means) to partition the latent positions into K groups in order to estimate the memberships in the multilayer degree-corrected stochastic block model. 
+Given a collection of *L* adjacency matrices representing graphs with $n$ aligned vertices (e.g. multilayer networks), DC-MASE obtains a joint embedding matrix with n rows, where each row corresponds to a vertex in the networks. After this, communities are obtained by applying a clustering procedure (such as K-means) to partition the latent positions into K groups in order to estimate the memberships in the multilayer degree-corrected stochastic block model. 
 
 The joint embedding is calculated by performing a separate *adjacency spectral embedding*  (ASE) for each graph, which consists in computing the eigendecomposition of each adjacency matrix, with a possible eigenvalue scaling, followed by a row-normalization step (such as dividing the rows by its L2 norm), and then performs a joint singular value decomposition of the concatenated row-normalized ASEs. A pictorial representation is presented below.
 
