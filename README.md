@@ -24,3 +24,4 @@ The networks encode weighted edges representing the monthly number of flights be
 
 
 # References
+Agterberg, J., Lubberts, Z., Arroyo, J., Joint Spectral Clustering in Multilayer Degree-Corrected Stochastic Blockmodels, [![arXiv shield](https://img.shields.io/badge/arXiv-2212.05053-red.svg?style=flat)](https://arxiv.org/abs/2212.05053)
