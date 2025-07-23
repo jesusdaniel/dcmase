@@ -21,17 +21,20 @@ comdetmethods <- function(Adj_list, K, method = "dcmase") {
   }
   #################################################################################
   if(method == "mase") {
+    require(SpectralGraphInference)
     mase.res <- mase(Adj_list, d = K, scaled.ASE = FALSE, diag.augment = FALSE)
     community_memberships <- kmeans(mase.res$V, K, nstart = 100)$cluster
   }
   #################################################################################
   if(method == "mase-gmm") {
+    require(SpectralGraphInference)
     require(mclust)
     mase.res <- mase(Adj_list, d = K, scaled.ASE = FALSE, diag.augment = FALSE)
     community_memberships <- Mclust(mase.res$V, K, verbose = FALSE)$classification
   }
   #################################################################################
   if(method == "mase-spherical") {
+    require(SpectralGraphInference)
     require(mclust)
     mase.res <- mase(Adj_list, d = K, scaled.ASE = FALSE, diag.augment = FALSE)
     V <- mase.res$V
